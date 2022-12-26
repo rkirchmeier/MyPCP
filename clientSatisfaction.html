@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+
+	<head>
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>MyHome</title>
+		<link rel="stylesheet" type="text/css" href="./src/css/styles.css">
+	</head>
+
+	<body>
+
+<!-- NAVIGATIONSLEISTE -->
+
+<!-- Navigationsleiste Browser -->
+
+		<nav id="header-nav">
+
+		  <div class="container" id="desktop-nav">
+		    <div class="row">
+		      <div class="col-6">
+
+		        <a href="index.html" class="logo-link">
+		          <img src="./src/img/Logo performance hd.png" alt="Altersis Performance logo">
+		        </a>
+
+		        <ul>
+		          <li><a href="index.html">MyHome</a></li>
+		          <li class="active">
+								<a id="performanceAnker" href="performance.html">MyPerformance</a>
+								<div class="clearfix" id="submenueFrame">
+									<ul id="submenueContent">
+											<a href="companyTargets.html">Company Targets</a>
+											<a href="myMboTargets.html">My MbO</a>
+											<a href="myPersonalTargets.html">My Personal Targets</a>
+											<a href="clientSatisfaction.html">Client Satisfaction</a>
+									</ul>
+								</div>
+							</li>
+		          <li><a href="career.html">MyCareer</a></li>
+		          <li><a href="documents.html">MyDocuments</a></li>
+		          <li><a href="admin.html">Admin</a></li>
+		        </ul>
+
+		      </div>
+		    </div>
+		  </div>
+
+		<!--- Navigationleiste für Mobile --->
+
+		  <div class="container" id="mobile-nav">
+		    <div class="row">
+		      <div class="col-6">
+
+		        <a href="index.html" class="logo-link">
+		          <img src="./src/img/Logo performance hd.png" alt="Altersis Performance logo">
+		        </a>
+
+		        <div class="clearfix" id="mobile-nav-dropdown" >
+
+		          <div id="mobile-nav-button"><span>&equiv;</span></div>
+
+		          <div class="clearfix" id="mobile-nav-content">
+		            <ul>
+		              <li><a href="index.html">MyHome</a></li>
+									<li class="active">
+										<a id="performanceAnker" href="performance.html">MyPerformance</a>
+										<div class="clearfix" id="submenueFrameMobile">
+											<ul id="submenueContentMobile">
+													<a href="companyTargets.html">Company Targets</a>
+													<a href="myMboTargets.html">My MbO</a>
+													<a href="myPersonalTargets.html">My Personal Targets</a>
+													<a href="clientSatisfaction.html">Client Satisfaction</a>
+											</ul>
+										</div>
+									</li>
+		              <li><a href="career.html">MyCareer</a></li>
+		              <li><a href="documents.html">MyDocuments</a></li>
+		              <li><a href="admin.html">Admin</a></li>
+		            </ul>
+		          </div>
+
+		        </div>
+
+		      </div>
+		    </div>
+		  </div>
+		</nav>
+
+					<!-- Client Feedback -->
+
+					<section id="clientFeedbackBereich">
+						<div class="container">
+							<div class="row">
+								<div class="col-6">
+									<header class="intro-container">
+										<h1>Client Feedbacks</h1>
+										<p>Here you can find all client feedbacks which have been given to you</p>
+									</header>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-6">
+									<button id="btn-typ-1" type="button" name="button">Add new client feedback</button><br><br>
+								</div>
+							</div>
+
+							<div class="row" id="addNewItemRow">
+								<div class="col-1">
+									<label for="client">Client:</label><br>
+									<input id="client" type="text" name="client" placeholder="Client">
+								</div>
+					      <div class="col-1">
+									<label for="contact">Contact Name:</label><br>
+									<input id="contact" type="text" name="contact" placeholder="First Name Family Name">
+								</div>
+					      <div class="col-1">
+									<label for="rating">Rating:</label><br>
+									<select class="selectBox" name="rating" id"rating">
+										<option value="3">excellent</option>
+										<option value="2.5">good</option>
+										<option value="2">appropriate</option>
+										<option value="1.5">under expectation</option>
+										<option value="1">poor</option>
+									</select>
+								</div>
+					      <div class="col-1">
+									<label for="trend">Trend:</label><br>
+									<select class="selectBox" name="trend" id"trend">
+										<option value="1.1">improving</option>
+										<option value="1">staying the same</option>
+										<option value="0.9">deteriorating</option>
+									</select>
+								</div>
+					      <div class="col-2">
+									<label for="feedbackDetails">Client Feedback:</label><br>
+									<textarea id="feedbackDetails" class= "textarea" name="name" placeholder="Write detailed Feedback"></textarea>
+								</div>
+							</div>
+
+
+					<!-- My client feedbacks -->
+
+					<div class="row">
+						<div class="col-6" id="clientFeedbackTitle">
+							<h1>My client feedbacks</h1>
+						</div>
+					</div>
+
+					<div class="row" id="myItemsRow">
+						<div class="col-1">
+							<label for="client">Client:</label><br>
+							<input id="client" type="text" name="client" placeholder="Client">
+						</div>
+						<div class="col-1">
+							<label for="contact">Contact Name:</label><br>
+							<input id="contact" type="text" name="contact" placeholder="First Name Family Name">
+						</div>
+						<div class="col-1">
+							<label for="rating">Rating:</label><br>
+							<select class="selectBox" name="rating" id"rating">
+								<option value=".5">excellent</option>
+								<option value="3">good</option>
+								<option value="2.5">appropriate</option>
+								<option value="2">under expectation</option>
+								<option value="1">poor</option>
+							</select>
+						</div>
+						<div class="col-1">
+							<label for="trend">Trend:</label><br>
+							<select class="selectBox" name="trend" id"trend">
+								<option value="1.1">improving</option>
+								<option value="1">staying the same</option>
+								<option value="0.9">deteriorating</option>
+							</select>
+						</div>
+						<div class="col-2">
+							<label for="feedbackDetails">Client Feedback:</label><br>
+							<textarea id="feedbackDetails" class= "textarea" name="name" placeholder="Write detailed Feedback"></textarea>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+			<!-- Footer -->
+
+			<footer id="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-6">
+							<span>MyHR @ Altersis Performance (2021)</span>
+							<nav id="footer-nav">
+								<a href="impressum.html">Impressum</a>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+	</body>
+</html>

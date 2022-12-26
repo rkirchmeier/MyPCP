@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+
+	<head>
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>MyHome</title>
+		<link rel="stylesheet" type="text/css" href="./src/css/styles.css">
+	</head>
+
+	<body>
+
+		<!-- NAVIGATIONSLEISTE -->
+
+		<!-- Navigationsleiste Browser -->
+
+				<nav id="header-nav">
+
+				  <div class="container" id="desktop-nav">
+				    <div class="row">
+				      <div class="col-6">
+
+				        <a href="index.html" class="logo-link">
+				          <img src="./src/img/Logo performance hd.png" alt="Altersis Performance logo">
+				        </a>
+
+				        <ul>
+				          <li class="active"><a href="index.html">MyHome</a></li>
+				          <li>
+										<a id="performanceAnker" href="performance.html">MyPerformance</a>
+										<div class="clearfix" id="submenueFrame">
+											<ul id="submenueContent">
+													<a href="companyTargets.html">Company Targets</a>
+													<a href="myMboTargets.html">My MbO</a>
+													<a href="myPersonalTargets.html">My Personal Targets</a>
+													<a href="clientSatisfaction.html">Client Satisfaction</a>
+											</ul>
+										</div>
+									</li>
+				          <li><a href="career.html">MyCareer</a></li>
+				          <li><a href="documents.html">MyDocuments</a></li>
+				          <li><a href="admin.html">Impressum</a></li>
+				        </ul>
+
+				      </div>
+				    </div>
+				  </div>
+
+				<!--- Navigationleiste für Mobile --->
+
+				  <div class="container" id="mobile-nav">
+				    <div class="row">
+				      <div class="col-6">
+
+				        <a href="index.html" class="logo-link">
+				          <img src="./src/img/Logo performance hd.png" alt="Altersis Performance logo">
+				        </a>
+
+				        <div class="clearfix" id="mobile-nav-dropdown" >
+
+				          <div id="mobile-nav-button"><span>&equiv;</span></div>
+
+				          <div class="clearfix" id="mobile-nav-content">
+				            <ul>
+				              <li class="active"><a href="index.html">MyHome</a></li>
+											<li>
+												<a id="performanceAnker" href="performance.html">MyPerformance</a>
+												<div class="clearfix" id="submenueFrameMobile">
+													<ul id="submenueContentMobile">
+															<a href="companyTargets.html">Company Targets</a>
+															<a href="myMboTargets.html">My MbO</a>
+															<a href="myPersonalTargets.html">My Personal Targets</a>
+															<a href="clientSatisfaction.html">Client Satisfaction</a>
+													</ul>
+												</div>
+											</li>
+				              <li><a href="career.html">MyCareer</a></li>
+				              <li><a href="documents.html">MyDocuments</a></li>
+				              <li><a href="admin.html">Impressum</a></li>
+				            </ul>
+				          </div>
+
+				        </div>
+
+				      </div>
+				    </div>
+				  </div>
+				</nav>
+
+<!-- PERSONALIEN -->
+
+<section id="myHome">
+  <div class="container">
+
+    <!-- Top Row Name -->
+    <div class="row">
+      <div class="col-6">
+        <header class="intro-container">
+        <h1>Vorname Name</h1>
+        </header>
+      </div>
+    </div>
+
+    <!-- Row for Foto and First Name and Street -->
+    <div class="row" id="mainPersonalInformation">
+      <div class="col-2">
+        <img src="./src/img/Profil.jpg" alt="Persönliches Foto">
+      </div>
+      <div class="col-2">
+        <label for="firstname">First Name</label>
+        <input type="text" name="firstname" id="firstname" placeholder="First Name"><br><br>
+        <label for="middlename">Middle Name</label>
+        <input type="text" name="middlename" id="middlename" placeholder="Middle Name"><br><br>
+        <label for="familyname">Family Name</label>
+        <input type="text" name="familyname" id="familyname" placeholder="Family Name"><br><br>
+        <label for="birthdate">Birthdate</label>
+        <input class= "date" type="date" name="birthdate" id="birthdate" placeholder="DD/MMT/YYYY"><br><br>
+      </div>
+      <div class="col-2">
+        <label for="street">Street/Nr.</label>
+        <input type="text" name="street" id="street" placeholder="Street Nr."><br><br>
+        <label for="plz">PLZ</label>
+        <input type="text" name="plz" id="plz" placeholder="PLZ">
+        <label for="city">City</label>
+        <input type="text" name="city" id="city" placeholder="City"><br><br>
+        <label for="canton">Canton</label>
+        <select class="listbox" id="canton" name="canton">
+          <option value="Aargau">Aargau</option>
+          <option value="Appenzell Ausserroden">Appenzell Ausserroden</option>
+          <option value="Appenzell Innerroden">Appenzell Innerroden</option>
+          <option value="Basel-Land">Basel-Land</option>
+          <option value="Basel-Stadt">Basel-Stadt</option>
+          <option value="Bern">Bern</option>
+          <option value="Freiburg">Freiburg</option>
+          <option value="Genf">Genf</option>
+          <option value="Glarus">Glarus</option>
+          <option value="Graubünden">Graubünden</option>
+          <option value="Jura">Jura</option>
+          <option value="Luzern">Luzern</option>
+          <option value="Neuenburg">Neuenburg</option>
+          <option value="Niedwalden">Niedwalden</option>
+          <option value="Obwalden">Obwalden</option>
+          <option value="Schaffhausen">Schaffhausen</option>
+          <option value="Schwyz">Schwyz</option>
+          <option value="Solothurn">Solothurn</option>
+          <option value="St.Gallen">St.Gallen</option>
+          <option value="Tessin">Tessin</option>
+          <option value="Thurgau">Thurgau</option>
+          <option value="Uri">Uri</option>
+          <option value="Vaadt">Vaadt</option>
+          <option value="Wallis">Wallis</option>
+          <option value="Zürich">Zürich</option>
+          <option value="Zug">Zug</option>
+          <option value="Not Applicable">Not Applicable</option>
+        </select>
+        <label for="country">Country</label>
+        <select class="listbox" id="country" name="country">
+          <option value="Switzerland">Switzerland</option>
+          <option value="Austria">Austria</option>
+          <option value="France">France</option>
+          <option value="Germany">Germany</option>
+          <option value="Italy">Italy</option>
+          <option value="Not Applicable">Not Applicable</option>
+        </select><br><br>
+      </div>
+    </div>
+
+    <!-- Row for Role / Start Date and Working status of partner and children -->
+
+<div class="row">
+  <div class="col-2" id="picturearea">
+    <article class="roleAtAltersis">
+      <label for="role">Current Role</label>
+      <input id="role" type="text" name="role" placeholder="Your current role"><br><br>
+      <label for="startDate">Start date at ALTERSIS</label>
+      <input class= "date" id="startDate" type="date" name="startDate" placeholder="dd.mm.yyyy">
+    </article>
+  </div>
+  <div class="col-2" id="familyInformation">
+    <label for="civilstatus">civil status</label>
+    <select class="listbox" id="civilstatus" name="civilstatus" placeholder"Civil status">
+      <option value="divorsed">divorsed</option>
+      <option value="married">married</option>
+      <option value="single">single</option>
+      <option value="widowed">widowed</option>
+    </select><br><br>
+    <label for="workingstatusPartner">Partner working status</label>
+    <select id="workingstatusPartner" class="listbox" name="workingstatus_partner">
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+    </select><br><br>
+    <label for="children">Nr. of children</label>
+    <select id="children" class="listbox" name="numberOfChildren">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+  <div class="col-2" id="childInformation">
+    <label for="child1">first child</label>
+    <input id="child1" type="text" name="child1" placeholder="First Name"><br>
+    <label for="birthyear1">birthyear first child</label>
+    <input id="birthyear1" type="text" name="birthyear1" placeholder="year"><br><br>
+    <label for="kind2">Kind1</label>
+    <input id="kind2" type="text" name="kind2" placeholder="First Name"><br>
+    <label for="birthyear2">birthyear second child</label>
+    <input id="birthyear2" type="text" name="birthyear2" placeholder="year"><br><br>
+    <label for="child3">first child</label>
+    <input id="child3" type="text" name="child3" placeholder="First Name"><br>
+    <label for="birthyear3">birthyear third child</label>
+    <input id="birthyear3" type="text" name="birthyear3" placeholder="year"><br><br>
+    <label for="kind4">Kind1</label>
+    <input id="kind4" type="text" name="kind4" placeholder="First Name">
+    <label for="birthyear4">birthyear second child</label>
+    <input id="birthyear4" type="text" name="birthyear4" placeholder="year">
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-6">
+				<span>MyHR @ Altersis Performance (2021)</span>
+				<nav id="footer-nav">
+					<a href="impressum.html">Impressum</a>
+				</nav>
+			</div>
+		</div>
+	</div>
+</footer>
+
+	</body>
+
+</html>
