@@ -1,0 +1,1100 @@
+/* Farbendefinition
+
+Orange: #e8590c
+Geld: #ffa94d
+dunkel grau: #676767
+hell grau: #F0F0F0
+
+
+*/
+
+/* Fonts */
+
+/* raleway-regular - latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/raleway-v18-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/raleway-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/raleway-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/raleway-v18-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/raleway-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/raleway-v18-latin-regular.svg#Raleway') format('svg'); /* Legacy iOS */
+}
+/* raleway-700 - latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/raleway-v18-latin-700.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/raleway-v18-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/raleway-v18-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/raleway-v18-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/raleway-v18-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/raleway-v18-latin-700.svg#Raleway') format('svg'); /* Legacy iOS */
+}
+/* raleway-italic - latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/raleway-v18-latin-italic.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/raleway-v18-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/raleway-v18-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/raleway-v18-latin-italic.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/raleway-v18-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/raleway-v18-latin-italic.svg#Raleway') format('svg'); /* Legacy iOS */
+}
+/* raleway-700italic - latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 700;
+  src: url('../fonts/raleway-v18-latin-700italic.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/raleway-v18-latin-700italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/raleway-v18-latin-700italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/raleway-v18-latin-700italic.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/raleway-v18-latin-700italic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/raleway-v18-latin-700italic.svg#Raleway') format('svg'); /* Legacy iOS */
+}
+
+/*--- Global ---*/
+
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'Raleway', 'Lato', 'Helvitca Neue', 'Arial', sans-serif;
+}
+
+#page {
+  height: 100%;
+}
+
+section {
+  padding-top: 1rem;
+  padding-bottom: 2.5rem;
+}
+
+
+@media (max-width: 1366px) {
+  section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+}
+
+:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #E5E5E5, 0 0 10px #E5E5E5;
+}
+
+/*--- Generelles ---*/
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.intro-container {
+  text-align: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4rem;
+}
+
+.intro-container > h1 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+.intro-container > p {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 1366px) {
+    .intro-container {
+      width: 90%;
+      }
+
+    .intro-container > p {
+      margin-bottom: .5rem;
+      }
+  }
+
+@media (max-width: 1024px) {
+      .intro-container {
+        width: 100%;
+        }
+
+      .intro-container > p {
+        margin-bottom: 0;
+        }
+}
+
+@media (max-width: 768px) {
+    .intro-container {
+      margin-bottom: 1rem;
+      }
+}
+
+.active {
+background-color: #ffa94d !important;
+}
+
+.wichtigerText {
+  font-weight: bold;
+}
+
+.screenreader {
+  display: none;
+}
+
+/* Buttons */
+
+.btn-typ-1 {
+  background-color: #A62C21;
+  border: 2px solid #A62C21;
+  color: #FFF;
+  padding: .4rem;
+  transition: border .5s ease-in-out;
+}
+
+.btn-typ-1:hover {
+  border: 2px solid #FFF;
+}
+
+.btn-typ-2 {
+  background-color: transparent;
+  border: 2px solid #FFF;
+  color: #FFF;
+  padding: .4rem .6rem;
+  transition: color .5s ease-in-out, border .5s ease-in-out;
+}
+
+.btn-typ-2:hover {
+  border: 2px solid #A62C21;
+  color: #A62C21;
+}
+
+.btn-typ-3 {
+  background-color: transparent;
+  border: 2px solid  #3d3f45;
+  color: #3d3f45;
+  font-size: 1rem;
+  transition: border .5s ease-in-out;
+}
+
+.btn-typ-3:hover {
+  border: 2px solid #A62C21;
+}
+
+.listbox,
+.date,
+.textarea {
+  font-family: 'Raleway';
+  font-size: 0.8rem;
+}
+
+label {
+  font-size: 0.8rem;
+}
+
+/*--- Navigationleiste ---*/
+
+#header-nav {
+  width: 100%;
+  height: 50px;
+  background-color: #F0F0F0;
+  position: relative;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#header-nav a > img {
+  height: 30px;
+  width: auto;
+  float: left;
+  margin-top: .5rem;
+  margin-left: 1rem;
+}
+
+#header-nav ul {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+#header-nav ul > li {
+  display: inline-block;
+  height: 100%;
+  padding: 0 .4rem 0 .4rem;
+}
+
+#header-nav ul > li > a {
+  display: inline-block;
+  margin-top: .85rem;
+  text-decoration: none;
+}
+
+#header-nav ul > li > a:link {
+color: #676767;
+}
+
+#header-nav ul > li > a:visited {
+  color: #676767;
+}
+
+#header-nav ul > li > a:active {
+  color: #676767;
+}
+
+#header-nav ul > li > a:hover {
+  color: #e8590c;
+
+}
+
+#header-nav .col-6 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#header-nav .container,
+#header-nav .row,
+#header-nav .col-6 {
+  height: 100%;
+}
+
+#submenueFrame {
+  /*position: absolute;*/
+  display: none;
+  right: 389px;
+  padding-left: 1.1rem;
+  padding-right: 1.2rem;
+  padding-bottom: 1.5rem;
+  top: 50px;
+  height: 150px;
+  width: 148px;
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 1380px) {
+
+  #submenueFrame {
+    right: 384px;
+  }
+
+}
+
+@media (max-width: 1180px) {
+
+  #submenueFrame {
+    right: 320%;
+  }
+
+}
+
+/* Hier wird die UL definiert */
+
+#submenueContent {
+
+  position: absolute;
+  display: block;
+
+  }
+
+/* Hier wird der Anker definiert */
+
+#header-nav ul > li:nth-of-type(2) ul > a {
+  margin-top: .85rem;
+  text-decoration: none;
+  color: #676767;
+  font-size: .8rem;
+  display: block;
+}
+
+/* Hier wird definiert, wann das Untermenue sichtbar wird */
+
+#header-nav ul > li:nth-of-type(2):hover #submenueFrame
+{
+  display: block;
+}
+
+/* Hier wird definiert, wie sich der jeweilige Anker des Untermenues verfärbt */
+
+#header-nav ul > li:nth-of-type(2) ul > a:hover {
+  color: #e8590c;
+}
+
+/* Navigationleiste - Mobile */
+
+#mobile-nav-button {
+  color: #676767;
+  float: right;
+  font-size: 2rem;
+  border: 2px solid #676767;
+  width: 37px;
+  height: 37px;
+  position: relative;
+  padding: 0.1rem;
+  margin-top: .2rem;
+  margin-bottom: .5rem;
+  margin-right: .5rem;
+}
+
+#mobile-nav-button > span {
+  position: absolute;
+  bottom: -2px;
+  left: 6.5px;
+}
+
+#mobile-nav-content > ul > li {
+ display: block;
+ background-color: #F0F0F0;
+ height: 50px;
+ padding: 0 1.2rem;
+ text-align: center;
+}
+
+/*#mobile-nav-dropdown {
+  position: relative;
+  display: inline-block;
+  float: right;
+}*/
+
+#mobile-nav-content {
+  position: absolute;
+  right: 0px;
+  top: 50px;
+  display: none;
+}
+
+#mobile-nav-dropdown:hover > #mobile-nav-content {
+  display: block;
+}
+
+#mobile-nav {
+  display: none;
+}
+
+#submenueFrameMobile {
+  position: absolute;
+  display: none;
+  right: 173px;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  padding-bottom: 1.5rem;
+  top: 50px;
+  height: 150px;
+  width: 150px;
+  background-color: #D0CECD;
+}
+
+#mobile-nav ul > li:nth-of-type(2):hover #submenueFrameMobile
+{
+  display: block;
+}
+
+.logo-link {
+  display: inline-block;
+}
+
+@media (max-width: 1000px) {
+  #desktop-nav {
+    display: none;
+  }
+
+#mobile-nav {
+    display: block;
+  }
+}
+
+/* Login */
+
+
+
+#header-nav input,
+#header-nav label  {
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 0;
+  float: right;
+}
+
+#regSection img {
+  margin-left: 100px;
+  margin-top: 50px;
+  box-shadow: 5px 5px 5px #D0CECD;
+}
+
+#regSection fieldset {
+  margin-top: 50px;
+}
+
+#regSection h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+#loginDescription {
+  margin-top: 50px;
+}
+
+/* MY HOME */
+
+#myHome {
+  background-color: #ffa94d;
+  height: 100%;
+  /*padding-bottom: 40px;*/
+}
+
+#myHome .col-2 {
+  padding: 0;
+}
+
+#myHome img {
+  height: auto;
+  width: 36%;
+  margin-left: 100px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 10px #676767;
+}
+
+#mainPersonalInformation label {
+  display: inline-block;
+  width: 30%;
+}
+
+#mainPersonalInformation .listbox,
+#mainPersonalInformation .date {
+  width: 50%;
+}
+
+#mainPersonalInformation input {
+  width: 50%
+}
+
+
+#familyInformation label,
+#childInformation label {
+  display: inline-block;
+  width: 30%;
+}
+
+#familyInformation input,
+#childInformation input {
+  width: 50%;
+}
+
+#familyInformation .listbox
+{
+  width: 50%;
+}
+
+#childInformation {
+  display: inline-block;
+}
+
+.roleAtAltersis {
+  margin-left: 100px;
+}
+
+.roleAtAltersis label {
+  display: inline-block;
+  width: 20%;
+}
+
+#picturearea * {
+  width: 65%;
+}
+
+@media (max-width: 768px) {
+  #mainPersonalInformation img {
+    display: none;
+  }
+
+  .roleAtAltersis {
+    display: none;
+  }
+}
+
+
+/* Company Targets */
+
+#companyTargetsBereich {
+  padding-top: 0;
+}
+
+#companyTargetsBereich .col-6:first {
+  padding-top: 0px;
+  height: 0px;
+}
+
+#companyTargetsBereich p:first-of-type {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#financial-target {
+  text-align: center;
+  background-color: #e8590c;
+  width: 90%;
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+/* #target-box ol {
+  display: block;
+  background-color: #ffa94d;
+  box-shadow: 0 2px 5px #676767;
+  height: 100%;
+  width: 100%;
+  color: grey;
+} */
+
+/* #companyTargetsBereich .row:nth-last-of-type(3) {
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+#companyTargetsBereich .col-1 {
+  background-color: #ffa94d;
+  margin-right: 20px;
+  height: 300px;
+}
+
+#companyTargetsBereich .col-1 h1 {
+  text-align: center;
+}
+
+#companyTargetsBereich .col-1 ol {
+  padding-right: 10px;
+  margin-left: 0;
+}
+
+#companyTargetsBereich .col-1 ol li {
+  font-size: .8rem;
+}
+
+#firstCompanyTarget {
+  margin-left: 50px;
+}
+
+@media (max-width: 1120px) {
+
+  #companyTargetsBereich .col-1 {
+    margin-right: 20px;
+    height: 200px;
+    width: 44%;
+    margin-bottom: 20px;
+  }
+
+  #companyTargetsBereich .col-1:nth-of-type(odd) {
+    margin-left: 50px;
+  }
+
+}
+
+@media (max-width: 810px) {
+
+  #financial-target {
+    margin-left: 40px;
+  }
+
+  #companyTargetsBereich .col-1 {
+    height: 170px;
+    width: 90%;
+    margin-bottom: 20px;
+    margin-left: 40px;
+  }
+
+  #companyTargetsBereich .col-1:nth-of-type(odd) {
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 750px) {
+
+  #financial-target {
+    margin-left: 30px;
+  }
+
+  #companyTargetsBereich .col-1 {
+    margin-left: 30px;
+  }
+
+  #companyTargetsBereich .col-1:nth-of-type(odd) {
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 580px) {
+
+  #financial-target {
+    margin-left: 20px;
+  }
+
+  #companyTargetsBereich .col-1 {
+    margin-left: 20px;
+  }
+
+  #companyTargetsBereich .col-1:nth-of-type(odd) {
+    margin-left: 20px;
+  }
+
+}
+
+@media (max-width: 580px) {
+  #companyTargetsBereich .col-1:nth-of-type(1){
+    height: 200px;
+  }
+}
+
+@media (max-width: 400px) {
+
+  #companyTargetsBereich .col-1 {
+    height: 250px;
+  }
+
+  #companyTargetsBereich .col-1:nth-of-type(1){
+    height: 250px;
+  }
+}
+
+
+/* Personal Targets */
+
+#PersonalTargetsBereich .selectBox,
+#PersonalTargetsBereich .date {
+  width: 90%;
+  height: 30px;
+  font-size: .8rem;
+  font-family: inherit;
+}
+
+#addNewItemRow {
+  border: 2px solid  #ffa94d;
+  background-color: #F8C676;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 60px;
+}
+
+#targetDescription {
+  height: 30px;
+  font-size: .8rem;
+  font-family: inherit;
+}
+
+#personalTargetTitle h1 {
+  font-size: 1rem;
+}
+
+#myItemsRow
+{
+  border: 2px solid  #e8590c;
+  background-color: #F4793C;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+#PersonalTargetsBereich textarea {
+  width: 95%;
+}
+
+
+@media (max-width: 650px) {
+
+#addNewItemRow {
+  margin-bottom: 30px;
+}
+
+}
+
+@media (max-width: 481px) {
+
+  #PersonalTargetsBereich .selectBox,
+  #PersonalTargetsBereich .date {
+    width: 95%;
+  }
+
+}
+
+/* Client Feedback */
+
+#clientFeedbackBereich .selectBox,
+#clientFeedbackBereich .date,
+#clientFeedbackBereich input
+{
+  width: 90%;
+  height: 30px;
+  font-size: .8rem;
+  font-family: inherit;
+}
+
+#feedbackDetails {
+  height: 30px;
+  width: 95%;
+  font-size: .8rem;
+  font-family: inherit;
+}
+
+#clientFeedbackTitle h1 {
+  font-size: 1rem;
+}
+
+@media (max-width: 481px) {
+
+  #clientFeedbackBereich .selectBox,
+  #clientFeedbackBereich .date {
+    width: 95%;
+  }
+
+}
+
+/* My MbO */
+
+#myMboSection label {
+  display: none;
+}
+
+#myMboSection h2 {
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* #myMboSection input
+{
+  font-size: 1rem;
+  border: 2px solid black;
+  padding-left: .5rem;
+  margin-right: 10px;
+  height: 50px;
+} */
+
+#myMboSection th,
+#myMboSection td {
+  width: 10%;
+  border: 1px solid black;
+  text-align: center;
+  font-size: .8rem;
+}
+
+#myMboSection th {
+  background-color: #F0F0F0;
+}
+
+#targetNameColumn td {
+  font-weight: bold;
+}
+
+#myMboSection input {
+  width: 90%;
+  font-size: .8rem;
+}
+
+#FETargetRow td {
+  background-color: #ACD0EE;
+}
+
+#FETargetRow td:first-of-type {
+  font-weight: bold;
+}
+
+#AETargetRow td {
+  background-color: #F8C676;
+}
+
+#AETargetRow td:first-of-type {
+  font-weight: bold;
+}
+
+#DETargetRow td {
+  background-color: #DAF7A6;
+}
+
+#DETargetRow td:first-of-type {
+  font-weight: bold;
+}
+
+#PETargetRow td {
+  background-color: #F5D407;
+}
+
+#PETargetRow td:first-of-type {
+  font-weight: bold;
+}
+
+/* Career Page */
+
+#myCareerBereich img {
+  width: 700px;
+  height: auto;
+}
+
+#myCareerBereich label {
+  margin-right: 30px;
+}
+
+#myCareerBereich input {
+  width: 300px;
+}
+
+#myCareerBereich textarea {
+  height: 300px;
+  width: 600px;
+
+}
+
+/* My Documents */
+
+#documentUpload button {
+  margin-left: 100px;
+}
+
+#documentsBereich h2 {
+  font-size: 1.2rem;
+  margin-top: 50px;
+}
+
+#DocItemRow img {
+  height: 20px;
+  width: auto;
+  align-items: center;
+}
+
+#DocItemRow {
+  background-color: #F0F0F0;
+  margin-bottom: 10px;
+}
+
+#DocItemRow p {
+  padding-left: 1rem;
+}
+
+#DocItemRow button {
+  width: 40px;
+  margin-left: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #FFF;
+  box-shadow: 5px 5px 5px #676767;
+}
+
+
+/* Performance Overview */
+
+#performanceOverviewPage .row {
+  margin-bottom: 40px;
+}
+
+#targetQuarter {
+  border-radius: 5%;
+  width: 44%;
+  margin-right: 20px;
+}
+
+#targetQuarter h2
+{
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+#targetQuarter p
+{
+  text-align: center;
+  font-size: 1rem;
+  padding: 20px;
+}
+
+#targetQuarter img {
+  height: 300px;
+  margin-top: 20px;
+  margin-left: 60px;
+  margin-bottom: 40px;
+}
+
+#targetQuarter:first-of-type {
+  margin-left: 90px;
+}
+
+#targetRow1 #targetQuarter:first-of-type {
+  background-color: #ACD0EE;
+}
+
+#targetRow1 #targetQuarter:nth-of-type(2) {
+  background-color: #F8C676;
+}
+
+#targetRow2 #targetQuarter:first-of-type {
+  background-color: #DAF7A6;
+}
+
+#targetRow2 #targetQuarter:nth-of-type(2) {
+  background-color: #F5D407;
+}
+
+#targetQuarter:nth-of-type(2) img {
+    margin-top: 5px;
+    margin-left: 100px;
+}
+
+#targetRow2 #targetQuarter:nth-of-type(2) img {
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+#targetRow2 #targetQuarter:first-of-type img {
+    margin-top: 10px;
+}
+
+/* Admin Page */
+
+#adminSection h2 {
+  font-size: 1rem;
+  margin-top: 2.5rem;
+}
+
+#utiliztionAdminTable th,
+#utiliztionAdminTable input {
+  font-size: .6rem;
+}
+
+#utilNameE1 {
+  width: 200px;
+}
+
+#adminExcellenceTable th {
+  font-size: .6rem;
+}
+
+#adminExcellenceTable input {
+  width: 80px;
+  font-size: .6rem;
+}
+
+#adminExcellenceTable #adminTargetName {
+  width: 200px;
+}
+
+/* Footer */
+
+#footer {
+  background-color: #3d3f45;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 2rem;
+  margin-top: auto;
+  color: #FFF;
+}
+
+#footer a {
+  text-decoration: none;
+}
+
+#footer a:link {
+  color: #FFF;
+}
+
+#footer a:visited {
+  color: #FFF;
+}
+
+#footer a:hover {
+  color: #F0F0F0;
+}
+
+#footer a:active {
+  color: #FFF;
+}
+
+@media (max-width: 560px) {
+
+#footer span {
+  display: none;
+}
+
+}
+
+
+
+/* Grid Sytem */
+
+.container {
+width: 95%;
+margin-left: auto;
+margin-right: auto;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+[class*='col-'] {
+  float: left;
+  min-height: 1px;
+}
+
+.col-0 {width: 8.333%;}
+.col-1 {width: 16.666%;}
+.col-2 {width: 33.333%;}
+.col-3 {width: 50%;}
+.col-4 {width: 66.666%}
+.col-6 {width: 100%;}
+
+
+@media (max-width: 1024px) {
+  .col-0 {width: 16.666%;}
+  .col-1 {width: 33.333%;}
+}
+
+@media (max-width: 768px) {
+  .col-0 {width: 33.333%;}
+  .col-1 {width: 50%;}
+  .col-2 {width: 100%;}
+  .col-4 {width: 100%;}
+  .col-3 {width: 100%;}
+}
+
+@media (max-width: 480px) {
+  .col-0 {width: 50%;}
+  .col-1 {width: 100%;}
+  .col-2 {width: 100%;}
+  .col-4 {width: 100%;}
+  .col-3 {width: 100%;}
+}
