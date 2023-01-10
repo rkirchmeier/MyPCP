@@ -1,18 +1,18 @@
-<?php require("./shared/inc/functions.inc.php"); ?>
+<?php require("../shared/inc/functions.inc.php"); ?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./src/css/styles.css">
-    <title>MyCareer</title>
+    <link rel="stylesheet" type="text/css" href="../src/css/styles.css">
+    <title>My Performance</title>
   </head>
 
 	<body>
     <div id="page" class="">
-      <?php require("./parts/navigation.php"); ?>
-      <?php require("./parts/footer.php"); ?>
+      <?php require("./navigation.php"); ?>
+      <?php require("./footer.php"); ?>
 
 <!-- Performance Management @ ALTERSIS -->
 
@@ -30,16 +30,16 @@
 			<div class="row" id="targetRow1">
 				<div class="col-3" id="targetQuarter">
 					<h2>Finanical Excellence (Company Targets)</h2>
-					<p>A company has to be profitable to invest in employees, in new prodcut & service development and the company infrastructure, etc. Most important for the <b>Financial Excellence</b> is the profitability (margin) which gives the basis for future investments. </p>
+					<p>A company has to be profitable to invest in employees, new prodcut & service development, the infrastructure, etc. Most important for the Financial Excellence is the profitability (margin) which gives the basis for future investments and the trust of the stakeholders. </p>
 					<a href="companyTargets.html">
-						<img src="./src/img/FE_picture.jpg" alt="Financial Excellence Picture">
+						<img src="../src/img/Trust.png" alt="Trust">
 					</a>
 				</div>
 				<div class="col-3" id="targetQuarter">
-					<h2>Administrative Excellence</h2>
-					<p>There are serveral administrative tasks beside our daily business of APM or Performance Engineering. These administrative tasks are importnat to our back office and sales services as e.g. invoicing, accounting, offering, etc. Therefore these activites are set as <b>Administrative excellence</b> targets.</p>
+					<h2>Company Culture Contribution</h2>
+					<p>Company Culture is very importnat to us as ALTERSIS Performance. We have spent some time together in collective thinking workshops discussing and agreeing on our values. The contribution to these values and the collaboration in the team is for very important. </p>
 					<a href="myMboTargets.html">
-						<img src="./src/img/AE_picture.jpg" alt="Administrative Excellence Picture">
+						<img src="../src/img/Collaboration.png" alt="Collaboration">
 					</a>
 				</div>
 			</div>
@@ -49,14 +49,14 @@
 					<h2>Delivery Excellence</h2>
 					<p>Our main task it to deliver a high quality service to our client. Therefore the client satisfaction has a high importance to the target of the <b>Delivery Excellence</b>. Additionally to support the profitability it's important this time is billable to the clients (utilization).</p>
 					<a href="companyTargets.html">
-						<img src="./src/img/FE_picture.jpg" alt="Financial Excellence Picture">
+						<img src="../src/img/Feedback.png" alt="Feedback">
 					</a>
 				</div>
 				<div class="col-3" id="targetQuarter">
 					<h2>Personal Excellence</h2>
 					<p>To grow in technical or social skills your personal development is a critical part of the <b>Personal Excellence</b> target. On a quarterly basis you will define your personal targets with your manager and coach.</p>
 					<a href="myMboTargets.html">
-						<img src="./src/img/AE_picture.jpg" alt="Administrative Excellence Picture">
+						<img src="../src/img/ContinuousLearning.png" alt="Continuous Learning">
 					</a>
 				</div>
 			</div>

@@ -1,6 +1,17 @@
-<?php require("./shared/inc/functions.inc.php"); ?>
+<?php 
+require("./shared/inc/functions.inc.php"); 
+?>
+
+<?php 
+
+session_start();
+
+if (isset($_SESSION['User_ID']) && isset($_SESSION['username'])) { 
+
+?>
+
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -19,3 +30,10 @@
     <script type="text/javascript" src="js/index.js"></script>
   </body>
 </html>   
+
+<?php 
+} else {
+  header ("Location: login.php");
+  exit();
+}
+?>

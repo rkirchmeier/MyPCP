@@ -81,7 +81,7 @@ body {
 }
 
 #page {
-  height: 100%;
+  height: 100% !important;
 }
 
 section {
@@ -127,6 +127,7 @@ section {
 .intro-container {
   text-align: center;
   width: 80%;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 4rem;
@@ -169,6 +170,11 @@ section {
 
 .active {
 background-color: #ffa94d !important;
+}
+
+main {
+  background-color: #ffa94d !important;
+  height: 100vh
 }
 
 .wichtigerText {
@@ -386,12 +392,6 @@ color: #676767;
  text-align: center;
 }
 
-/*#mobile-nav-dropdown {
-  position: relative;
-  display: inline-block;
-  float: right;
-}*/
-
 #mobile-nav-content {
   position: absolute;
   right: 0px;
@@ -439,35 +439,49 @@ color: #676767;
   }
 }
 
+.hide {
+  width: 0%;
+  height: 0%;
+  border: none;
+  color: #F0F0F0;
+  display: none;
+}
+
+
 /* Login */
 
-
-
-#header-nav input,
-#header-nav label  {
-  margin-top: 15px;
-  margin-right: 10px;
-  padding: 0;
-  float: right;
+#login {
+  background-color: #ffa94d;
+  display: flex;
+  justify-content: center ;
+  align-items: center;
+  height: 100%;
 }
 
-#regSection img {
-  margin-left: 100px;
-  margin-top: 50px;
-  box-shadow: 5px 5px 5px #D0CECD;
-}
-
-#regSection fieldset {
-  margin-top: 50px;
-}
-
-#regSection h2 {
+#login h2 {
   text-align: center;
   font-size: 2rem;
+  margin-bottom: 30px;
 }
 
-#loginDescription {
-  margin-top: 50px;
+#login form {
+  display: block;
+  margin: auto;
+  align-items: center;
+  width: 500px;
+  border: 2px solid #3d3f45;
+  padding: 30px;
+  background: #b9b8b8;
+  border-radius: 15px;
+}
+
+.error {
+  background-color: #f2dede;
+  color: #a94442;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #676767;
 }
 
 /* MY HOME */
@@ -478,16 +492,46 @@ color: #676767;
   /*padding-bottom: 40px;*/
 }
 
+#myHome input,
+#myHome .listbox
+{
+  margin-bottom: 20px;
+}
+
 #myHome .col-2 {
   padding: 0;
 }
 
 #myHome img {
   height: auto;
-  width: 36%;
-  margin-left: 100px;
-  margin-bottom: 15px;
+  width: 50%;
+  margin-bottom: 20px;
   box-shadow: 0 0 10px #676767;
+}
+
+#picturearea *,
+#rolearea * {
+  width: 100%;
+}
+
+#picturearea {
+  margin-bottom: 40px;
+}
+
+#picturearea input
+{
+  width: 350px;
+}
+
+
+
+#title {
+  margin-bottom: 20px;
+}
+
+#picturearea label  
+{
+  margin-left: 100px;
 }
 
 #mainPersonalInformation label {
@@ -498,12 +542,17 @@ color: #676767;
 #mainPersonalInformation .listbox,
 #mainPersonalInformation .date {
   width: 50%;
+  height: 30px !important;
+  font-size: 1rem;
 }
 
 #mainPersonalInformation input {
   width: 50%
 }
 
+#mainPersonalInformation {
+  margin-bottom: 30px;
+}
 
 #familyInformation label,
 #childInformation label {
@@ -519,6 +568,8 @@ color: #676767;
 #familyInformation .listbox
 {
   width: 50%;
+  height: 30px !important;
+  font-size: 1rem;
 }
 
 #childInformation {
@@ -534,9 +585,7 @@ color: #676767;
   width: 20%;
 }
 
-#picturearea * {
-  width: 65%;
-}
+
 
 @media (max-width: 768px) {
   #mainPersonalInformation img {
@@ -572,26 +621,33 @@ color: #676767;
   width: 90%;
   margin-left: 50px;
   margin-bottom: 20px;
+  padding-top: 10px;
 }
 
-/* #target-box ol {
+ #target-box ol {
   display: block;
   background-color: #ffa94d;
   box-shadow: 0 2px 5px #676767;
   height: 100%;
   width: 100%;
   color: grey;
-} */
+}
 
-/* #companyTargetsBereich .row:nth-last-of-type(3) {
+#companyTargetsBereich h1 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+#companyTargetsBereich .row:nth-last-of-type(3) {
   margin-left: auto;
   margin-right: auto;
-} */
+}
 
 #companyTargetsBereich .col-1 {
   background-color: #ffa94d;
   margin-right: 20px;
-  height: 300px;
+  height: 350px;
 }
 
 #companyTargetsBereich .col-1 h1 {
@@ -611,7 +667,15 @@ color: #676767;
   margin-left: 50px;
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1400px) {
+
+  #companyTargetsBereich .col-1 {
+    height: 400px;
+  }
+
+}
+
+@media (max-width: 1200px) {
 
   #companyTargetsBereich .col-1 {
     margin-right: 20px;
@@ -626,7 +690,7 @@ color: #676767;
 
 }
 
-@media (max-width: 810px) {
+@media (max-width: 1000px) {
 
   #financial-target {
     margin-left: 40px;
@@ -673,18 +737,16 @@ color: #676767;
     margin-left: 20px;
   }
 
-}
-
-@media (max-width: 580px) {
-  #companyTargetsBereich .col-1:nth-of-type(1){
+  #companyTargetsBereich .col-1:nth-of-type(1) {
     height: 200px;
   }
+
 }
 
-@media (max-width: 400px) {
+@media (max-width: 440px) {
 
   #companyTargetsBereich .col-1 {
-    height: 250px;
+    height: 300px;
   }
 
   #companyTargetsBereich .col-1:nth-of-type(1){
@@ -692,6 +754,13 @@ color: #676767;
   }
 }
 
+@media (max-width: 380px) {
+
+  #companyTargetsBereich h1 {
+    font-size: 1.0rem;
+  }
+
+}
 
 /* Personal Targets */
 
@@ -786,8 +855,8 @@ color: #676767;
 
 /* My MbO */
 
-#myMboSection label {
-  display: none;
+#myMboSection {
+  padding-bottom: 80px;
 }
 
 #myMboSection h2 {
@@ -795,14 +864,16 @@ color: #676767;
   margin-top: 1rem;
 }
 
-/* #myMboSection input
+#myMboSection .listbox,
+#myMboSection label
 {
-  font-size: 1rem;
-  border: 2px solid black;
-  padding-left: .5rem;
-  margin-right: 10px;
-  height: 50px;
-} */
+ width: 10%;
+}
+
+#myMboSection .YearButton {
+  width: 10% !important;
+  margin-bottom: 20px !important;
+}
 
 #myMboSection th,
 #myMboSection td {
@@ -820,11 +891,6 @@ color: #676767;
   font-weight: bold;
 }
 
-#myMboSection input {
-  width: 90%;
-  font-size: .8rem;
-}
-
 #FETargetRow td {
   background-color: #ACD0EE;
 }
@@ -834,7 +900,7 @@ color: #676767;
 }
 
 #AETargetRow td {
-  background-color: #F8C676;
+  background-color: #ca8cf3;
 }
 
 #AETargetRow td:first-of-type {
@@ -857,6 +923,31 @@ color: #676767;
   font-weight: bold;
 }
 
+@media (max-width: 500px) {
+
+  #myMboSection th,
+  #myMboSection td {
+    width: 10%;
+    border: 1px solid black;
+    text-align: center;
+    font-size: .6rem;
+  }
+
+}
+
+@media (max-width: 400px) {
+
+  #myMboSection th,
+  #myMboSection td {
+    width: 10%;
+    border: 1px solid black;
+    text-align: center;
+    font-size: .5rem;
+  }
+
+}
+
+
 /* Career Page */
 
 #myCareerBereich img {
@@ -866,17 +957,160 @@ color: #676767;
 
 #myCareerBereich label {
   margin-right: 30px;
+  clear: left;
+  float: left;
+  width: 170px;
 }
 
 #myCareerBereich input {
+  float: left;
   width: 300px;
+  margin-bottom: 2rem;
 }
 
 #myCareerBereich textarea {
   height: 300px;
-  width: 600px;
+  width: 500px;
+}
+
+#myCareerBereich #roles,
+#myCareerBereich #year {
+  width: 300px;
+  height: 30px;
+  font-size: 1rem;
+}
+
+@media (max-width: 1425px) {
+
+  #myCareerBereich img
+  {
+    margin-top: 20px;
+    width: 500px;
+  }
+
+  #myCareerBereich textarea {
+    height: 200px;
+    width: 500px;
+  }
 
 }
+
+
+@media (max-width: 1200px) {
+
+  #myCareerBereich img
+  {
+    margin-top: 20px;
+    width: 500px;
+  }
+
+  #myCareerBereich textarea {
+    height: 200px;
+    width: 400px;
+  }
+
+}
+
+@media (max-width: 1020px) {
+
+  #myCareerBereich img
+  {
+    margin-top: 20px;
+    width: 500px;
+    margin-left: -50px;
+  }
+
+  #myCareerBereich textarea {
+    height: 200px;
+    width: 300px;
+  }
+
+}
+
+
+@media (max-width: 930px) {
+
+  #myCareerBereich img
+  {
+    margin-top: 20px;
+    width: 400px;
+  }
+
+  #myCareerBereich textarea {
+    height: 200px;
+    width: 300px;
+  }
+
+}
+
+@media (max-width: 770px) {
+
+  #myCareerBereich img
+  {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 450px;
+  }
+
+  #myCareerBereich textarea {
+    height: 200px;
+    width: 500px;
+  }
+
+}
+
+@media (max-width: 580px) {
+
+  #myCareerBereich img
+  {
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 400px;
+
+  }
+
+  #myCareerBereich textarea {
+    height: 200px;
+    width: 400px;
+    margin-left: 20px;
+  }
+
+  #myCareerBereich label {
+    margin-left: 20px;
+  }
+
+  #myCareerBereich input {
+    margin-left: 20px;
+  }
+
+}
+
+@media (max-width: 420px) {
+
+  #myCareerBereich img
+  {
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 300px;
+
+  }
+
+  #myCareerBereich textarea {
+    height: 200px;
+    width: 300px;
+    margin-left: 30px;
+  }
+
+  #myCareerBereich label {
+    margin-left: 30px;
+  }
+
+  #myCareerBereich input {
+    margin-left: 30px;
+  }
+
+}
+
 
 /* My Documents */
 
@@ -924,11 +1158,13 @@ color: #676767;
   border-radius: 5%;
   width: 44%;
   margin-right: 20px;
+  margin-bottom: 40px;
 }
 
 #targetQuarter h2
 {
   text-align: center;
+  margin-top: 20px;
   font-size: 1.2rem;
 }
 
@@ -939,11 +1175,22 @@ color: #676767;
   padding: 20px;
 }
 
+#targetQuarter:first-of-type p
+{
+  padding: 10px;
+}
+
+#targetQuarter:nth-of-type(2) p
+{
+  padding: 10px;
+}
+
 #targetQuarter img {
-  height: 300px;
-  margin-top: 20px;
-  margin-left: 60px;
-  margin-bottom: 40px;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 
 #targetQuarter:first-of-type {
@@ -966,19 +1213,22 @@ color: #676767;
   background-color: #F5D407;
 }
 
-#targetQuarter:nth-of-type(2) img {
-    margin-top: 5px;
-    margin-left: 100px;
+@media (max-width: 1200px) {
+
+  #performanceOverviewPage .row {
+    margin-bottom: 0px;
+  }
+
+  #targetQuarter.col-3 {
+    margin-left: 0px;
+  }
+  
+  #targetQuarter {
+    width: 100%;
+  }
+
 }
 
-#targetRow2 #targetQuarter:nth-of-type(2) img {
-    margin-top: 20px;
-    margin-left: 100px;
-}
-
-#targetRow2 #targetQuarter:first-of-type img {
-    margin-top: 10px;
-}
 
 /* Admin Page */
 

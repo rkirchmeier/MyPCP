@@ -1,18 +1,18 @@
-<?php require("./shared/inc/functions.inc.php"); ?>
+<?php require("../shared/inc/functions.inc.php"); ?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./src/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../src/css/styles.css">
     <title>Company Targets</title>
   </head>
 
 	<body>
     <div id="page" class="">
-      <?php require("./parts/navigation.php"); ?>
-      <?php require("./parts/footer.php"); ?>
+      <?php require("./navigation.php"); ?>
+      <?php require("./footer.php"); ?>
 
 
 <!-- Company Targets Header -->
@@ -23,14 +23,14 @@
           <div class="col-6">
             <header class="intro-container">
               <h1>Our company targets</h1>
-              <p>To be the leading company for Performance Engineering in Europe we set the following targets for 2021</p>
+              <p>To be the leading company for Performance Engineering in Europe we set the following targets for this year</p>
             </header>
           </div>
         </div>
 
         <div class="row">
             <div class="col-6" id="financial-target">
-                <p>Our <b>financial target</b> for 2021 is to reach <b>7 Mio EUR revenue</b> and a <b>margin of 14.6%!</b></p>
+                <p>Our <b>financial target</b> for 2023 is to reach <b>9.9 Mio EUR revenue</b> and a <b>margin of 14%!</b></p>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
         <div class="col-1" id="firstCompanyTarget">
           <article class="target-box">
             <div id="target-icon" class="target-icon"></div>
-            <h3>Strenghen partner management</h3>
+            <h1>Strenghen partner management</h1>
             <ol>
               <li>Clear allocation – who is Partner Manager</li>
               <li>Setup regular calls at least once per month with partner</li>

@@ -1,207 +1,228 @@
 <!-- PERSONALIEN -->
+<!-- Connect to DB -->
+<?php 
 
-<?php
+require("./shared/inc/db.inc.php"); 
 
-$dbname = "myPCP";
-$user = "root";
-$password = "root";
-$dbhost = "CHBSLJME05TST";
-// $dbhost = "127.0.0.1";
+//query data from database
 
-try {
-  $pdo = new PDO("mysql:host={$dbhost};dbname={$dbname}", $user, $password, array(
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-  ));
+$Employee_ID = $_SESSION['Employee_ID'];
+
+$stmt = $pdo->prepare ("SELECT * FROM employee WHERE Employee_ID = $Employee_ID");
+$stmt -> execute();
+$data = $stmt->fetchAll();
+
+foreach($data as $employee) {
+
 }
-catch(PDOException $e) {
-  die("Connection to database failed");
-}
+  
+$stmt = $pdo->prepare ("SELECT * FROM `images` WHERE Employee_ID = $Employee_ID");
+$stmt -> execute();
+$data = $stmt->fetchAll();
 
-if(count($_POST) > 0)
-    if (!strlen($_POST['firstname']) > 0
-    || !strlen($_POST['familyname']) > 0
-    || !strlen($_POST['birthdate']) > 0
-    || !strlen($_POST['street']) > 0
-    || !strlen($_POST['plz']) > 0
-    || !strlen($_POST['city']) > 0
-    || !strlen($_POST['country']) > 0
-    || !strlen($_POST['civilstatus']) > 0
-    || !strlen($_POST['children']) > 0
-    ) {
-        echo "You did not complete the form";
-        echo "Not saved";
-    }
-    else{
-        $sql = "INSERT INTO Employee "
-        ."(firstname, middlename, familyname, birthdate, street, plz, city, canton, country, cilistatus, workingstatus_partner, numberOfChildren, child1, birthyear1, child2, birthyear2, child3, birthyear3, child4, birthyear4) VALUES "
-        ."(:firstname, :middlename, :familyname, :birthdate, :street, :plz, :city, :canton, :country, :cilistatus, :workingstatus_partner, :numberOfChildren, :child1, :birthyear1, :child2, :birthyear2, :child3, :birthyear3, :child4, :birthyear4)";
+foreach($data as $images) {
 
-        $query = $pdo->prepare($sql);
-        $query->bindParam(':firstname', $_POST['firstname'], PDO::PARAM_STR);
-        $query->bindParam(':middlename', $_POST['middlename'], PDO::PARAM_STR);
-        $query->bindParam(':familyname', $_POST['familyname'], PDO::PARAM_STR);
-        $query->bindParam(':birthdate', $_POST['birthdate'], PDO::PARAM_STR);
-        $query->bindParam(':street', $_POST['street'], PDO::PARAM_STR);
-        $query->bindParam(':plz', $_POST['plz'], PDO::PARAM_INT); 
-        $query->bindParam(':city', $_POST['city'], PDO::PARAM_STR);
-        $query->bindParam(':canton', $_POST['canton'], PDO::PARAM_STR);
-        $query->bindParam(':country', $_POST['country'], PDO::PARAM_STR);
-        $query->bindParam(':civilstatus', $_POST['civilstatus'], PDO::PARAM_STR);
-        $query->bindParam(':workingstatus_partner', $_POST['workingstatus_partner'], PDO::PARAM_STR);
-        $query->bindParam(':numberOfChildren', $_POST['numberOfChildren'], PDO::INT;
-        $query->bindParam(':child1', $_POST['child1'], PDO::PARAM_STR);
-        $query->bindParam(':birthyear1', $_POST['birthyear1'], PDO::PARAM_STR);
-        $query->bindParam(':child2', $_POST['child2'], PDO::PARAM_STR);
-        $query->bindParam(':birthyear2', $_POST['birthyear2'], PDO::PARAM_STR);
-        $query->bindParam(':child3', $_POST['child3'], PDO::PARAM_STR);
-        $query->bindParam(':birthyear3', $_POST['birthyear3'], PDO::PARAM_STR);
-        $query->bindParam(':child4', $_POST['child4'], PDO::PARAM_STR);
-        $query->bindParam(':birthyear4', $_POST['birthyear4'], PDO::PARAM_STR);
 
-        $query->execute();
-
-        if ($pdo->lastInsertId()){
-            echo "Successfully saved";
-        }
-    }
-
-endif;
+} 
 
 ?>
+
+<?php 
+
+
+        if (empty($images['image_path'])) {
+
+        $filepath = "./src/img/EmptyProfile.png";
+
+        } else {
+
+
+        $image = ($images['image_path']); 
+
+        $image = explode('/', $image);
+        unset($image[0]);
+        $image = implode('/', $image);
+
+        $folder = "./";
+        $filepath = $folder.$image;
+        
+        }
+
+?>
+        
 
 <section id="myHome">
     <div class="container">
 
         <!-- Top Row Name -->
         <div class="row">
-        <div class="col-6">
-            <header class="intro-container">
-            <h1>Vorname Name</h1>
-            </header>
-        </div>
+            <div class="col-6">
+                <header class="intro-container">
+                <h1><?php echo ($employee['FirstName']); ?> <?php echo ($employee['FamilyName']); ?></h1>
+                </header>
+            </div>
         </div>
 
-    <form action="POST">       
-        <div class="row" id="mainPersonalInformation">
-            <!-- Picture -->
+        <div class="row">
             <div class="col-2">
-                <img src="./src/img/Profil.jpg" alt="Persönliches Foto">
+                <form id="picture" action="./parts/upload.php" method="POST" enctype="multipart/form-data">
+                <div id="picturearea">
+                    <img src="<?php echo $filepath; ?>" alt="Your Picture"> <br>
+                    <input type="file" name="image"><br><br>
+                    <input type="submit" name="upload" value="upload">
+                </div>
+                </form>
             </div>
-        
-            <div class="col-2">
-                <label for="firstname">First Name</label>
-                <input type="text" name="firstname" id="firstname" placeholder="First Name"><br><br>
-                <label for="middlename">Middle Name</label>
-                <input type="text" name="middlename" id="middlename" placeholder="Middle Name"><br><br>
-                <label for="familyname">Family Name</label>
-                <input type="text" name="familyname" id="familyname" placeholder="Family Name"><br><br>
-                <label for="birthdate">Birthdate</label>
-                <input class= "date" type="date" name="birthdate" id="birthdate" placeholder="DD/MMT/YYYY"><br><br>
-            </div>
-            <div class="col-2">
-                <label for="street">Street/Nr.</label>
-                <input type="text" name="street" id="street" placeholder="Street Nr."><br><br>
-                <label for="plz">PLZ</label>
-                <input type="text" name="plz" id="plz" placeholder="PLZ">
-                <label for="city">City</label>
-                <input type="text" name="city" id="city" placeholder="City"><br><br>
-                <label for="canton">Canton</label>
-                <select class="listbox" id="canton" name="canton">
-                <option value="Aargau">Aargau</option>
-                <option value="Appenzell Ausserroden">Appenzell Ausserroden</option>
-                <option value="Appenzell Innerroden">Appenzell Innerroden</option>
-                <option value="Basel-Land">Basel-Land</option>
-                <option value="Basel-Stadt">Basel-Stadt</option>
-                <option value="Bern">Bern</option>
-                <option value="Freiburg">Freiburg</option>
-                <option value="Genf">Genf</option>
-                <option value="Glarus">Glarus</option>
-                <option value="Graubünden">Graubünden</option>
-                <option value="Jura">Jura</option>
-                <option value="Luzern">Luzern</option>
-                <option value="Neuenburg">Neuenburg</option>
-                <option value="Niedwalden">Niedwalden</option>
-                <option value="Obwalden">Obwalden</option>
-                <option value="Schaffhausen">Schaffhausen</option>
-                <option value="Schwyz">Schwyz</option>
-                <option value="Solothurn">Solothurn</option>
-                <option value="St.Gallen">St.Gallen</option>
-                <option value="Tessin">Tessin</option>
-                <option value="Thurgau">Thurgau</option>
-                <option value="Uri">Uri</option>
-                <option value="Vaadt">Vaadt</option>
-                <option value="Wallis">Wallis</option>
-                <option value="Zürich">Zürich</option>
-                <option value="Zug">Zug</option>
-                <option value="Not Applicable">Not Applicable</option>
-                </select>
-                <label for="country">Country</label>
-                <select class="listbox" id="country" name="country">
-                <option value="Switzerland">Switzerland</option>
-                <option value="Austria">Austria</option>
-                <option value="France">France</option>
-                <option value="Germany">Germany</option>
-                <option value="Italy">Italy</option>
-                <option value="Not Applicable">Not Applicable</option>
-                </select><br><br>
+            <div class="col-4" id="rolearea">
+                <article class="roleAtAltersis">
+                <label for="Role">Role</label>
+                <p><?php echo ($employee['Role']); ?></p>
+                <label for="StartDate">Start Date</label>
+                <p><?php echo ($employee['StartDate']); ?></p>
+                <label for="Squadlead">Squadlead</label>
+                <p><?php echo ($employee['Squadlead']); ?></p>
+                <label for="Coach">Coach</label>
+                <p><?php echo ($employee['Coach']); ?></p>
+                </article>
             </div>
         </div>
+
+            <!-- Picture -->
+
+        <div class="row" id="mainPersonalInformation">
+
+        <div class="row">
+            <div class="col-6" id="title">
+                <h3>Personal Informationen</h3>
+            </div>
+        </div>
+
+        <!-- Personal Information -->
+        <div class="row"></div>
+            <form action="./parts/update.php" method="POST" enctype="multipart/form-data">
+                <div class="col-2">
+                    <label for="FirstName">First Name</label>
+                    <input type="text" name="FirstName" id="FirstName" placeholder="First Name" value=<?php echo ($employee['FirstName']); ?>><br>
+                    <label for="MiddleName">Middle Name</label>
+                    <input type="text" name="MiddleName" id="MiddleName" placeholder="Middle Name" value=<?php echo ($employee['MiddleName']); ?>><br>
+                    <label for="FamilyName">Family Name</label>
+                    <input type="text" name="FamilyName" id="FamilyName" placeholder="Family Name" value=<?php echo ($employee['FamilyName']); ?>><br>
+                    <label for="Birthdate">Birthdate</label>
+                    <input class= "date" type="date" name="Birthdate" id="Birthdate" placeholder="DD/MMT/YYYY" value= <?php echo ($employee['Birthdate']); ?>><br>
+                    <label for="PhoneNumber">Mobile</label>
+                    <input class= "text" type="text" name="PhoneNumber" id="PhoneNumber" placeholder="+41 xx xxx xxx" value= <?php echo ($employee['PhoneNumber']); ?>><br>
+                    <label for="Email">Privat Email</label>
+                    <input class= "email" type="email" name="PhoneNumber" id="Email" placeholder="email@email.com" value= <?php echo ($employee['Email']); ?>><br>
+                    <input type="submit" name="submit" value="Update">
+                </div>
+                <div class="col-2">
+                    <label for="Street">Street</label>
+                    <input type="text" name="Street" id="Street" placeholder="Street Nr." value=<?php echo ($employee['Street']); ?>><br>
+                    <label for="PLZ">PLZ</label>
+                    <input type="text" name="PLZ" id="PLZ" placeholder="PLZ" value=<?php echo ($employee['PLZ']); ?>><br>
+                    <label for="Place">City</label>
+                    <input type="text" name="Place" id="Place" placeholder="Place" value=<?php echo ($employee['Place']); ?>><br>
+                    
+                    <?php $temp_val = ($employee['Canton']); ?>
+
+                        <label for="Canton">Canton</label>
+                        <select class='listbox' id='Canton' name='Canton'>
+                            <option value='Aargau' <?php if($temp_val == 'Aargau') echo('selected')?>>Aargau</option>
+                            <option value='Appenzell Ausserroden' <?php if($temp_val == 'Appenzell Ausserroden') echo('selected')?> >Appenzell Ausserroden</option>
+                            <option value='Appenzell Innerroden' <?php if($temp_val == 'Appenzell Innerroden') echo('selected')?> >Appenzell Innerroden</option>
+                            <option value='Basel-Land' <?php if($temp_val == 'Basel-Land') echo('selected')?> >Basel-Land</option>
+                            <option value='Basel-Stadt' <?php if($temp_val == 'Basel-Stadt') echo('selected')?> >Basel-Stadt</option>
+                            <option value='Bern' <?php if($temp_val == 'Bern') echo('selected')?> >Bern</option>
+                            <option value='Freiburg' <?php if($temp_val == 'Freiburg') echo('selected')?> >Freiburg</option>
+                            <option value='Genf' <?php if($temp_val == 'Genf') echo('selected')?> >Genf</option>
+                            <option value='Glarus' <?php if($temp_val == 'Glarus') echo('selected')?> >Glarus</option>
+                            <option value='Graubünden' <?php if($temp_val == 'Graubünden') echo('selected')?> >Graubünden</option>
+                            <option value='Jura' <?php if($temp_val == 'Jura') echo('selected')?> >Jura</option>
+                            <option value='Luzern' <?php if($temp_val == 'Luzern') echo('selected')?> >Luzern</option>
+                            <option value='Neuenburg' <?php if($temp_val == 'Neuenburg') echo('selected')?> >Neuenburg</option>
+                            <option value='Niedwalden' <?php if($temp_val == 'Niedwalden') echo('selected')?> >Niedwalden</option>
+                            <option value='Obwalden' <?php if($temp_val == 'Obwalden') echo('selected')?> >Obwalden</option>
+                            <option value='Schaffhausen' <?php if($temp_val == 'Schaffhausen') echo('selected')?> >Schaffhausen</option>
+                            <option value='Schwyz' <?php if($temp_val == 'Schwyz') echo('selected')?> >Schwyz</option>
+                            <option value='Solothurn' <?php if($temp_val == 'Solothurn') echo('selected')?> >Solothurn</option>
+                            <option value='St.Gallen' <?php if($temp_val == 'St.Gallen') echo('selected')?> >St.Gallen</option>
+                            <option value='Tessin' <?php if($temp_val == 'Tessin') echo('selected')?> >Tessin</option>
+                            <option value='Thurgau' <?php if($temp_val == 'Thurgau') echo('selected')?>>Thurgau</option>
+                            <option value='Uri' <?php if($temp_val == 'Uri') echo('selected')?> >Uri</option>
+                            <option value='Vaadt' <?php if($temp_val == 'Vaadt') echo('selected')?> >Vaadt</option>
+                            <option value='Wallis' <?php if($temp_val == 'Wallis') echo('selected')?> >Wallis</option>
+                            <option value='Zürich' <?php if($temp_val == 'Zürich') echo('selected')?> >Zürich</option>
+                            <option value='Zug' <?php if($temp_val == 'Zug') echo('selected')?> >Zug</option>
+                            <option value='Not Applicable' <?php if($temp_val == 'Not Applicable') echo('selected')?> >Not Applicable</option>
+                        </select><br>
+                    
+                        <?php $temp_val1 = ($employee['Country']); ?>
+
+                        <label for="Country">Country</label>
+                        <select class='listbox' id='Country' name='Country'>
+                            <option value='Switzerland' <?php if($temp_val1 == 'Switzerland') echo('selected')?> >Switzerland</option> 
+                            <option value='Austria' <?php if($temp_val1 == 'Austria') echo('selected')?> >Austria</option> 
+                            <option value='France' <?php if($temp_val1 == 'France') echo('selected')?> >France</option> 
+                            <option value='Germany' <?php if($temp_val1 == 'Germany') echo('selected')?> >Germany</option> 
+                            <option value='Italy' <?php if($temp_val1 == 'Italy') echo('selected')?> >Italy</option> 
+                            <option value='Not Applicable' <?php if($temp_val1 == 'Not Applicable') echo('selected')?> >Not Applicable</option> 
+                        </select><br>
+                </div>
 
             <!-- Row for Role / Start Date and Working status of partner and children -->
 
-        <div class="row">
-            <div class="col-2" id="picturearea">
-                <article class="roleAtAltersis">
-                <label for="role">Current Role</label>
-                <p></p>
-                <br><br>
-                <label for="startDate">Start date at ALTERSIS</label>
-                <p></p>
-                </article>
-            </div>
-            <div class="col-2" id="familyInformation">
-                <label for="civilstatus">civil status</label>
-                <select class="listbox" id="civilstatus" name="civilstatus" placeholder="Civil status">
-                <option value="divorsed">divorsed</option>
-                <option value="married">married</option>
-                <option value="single">single</option>
-                <option value="widowed">widowed</option>
-                </select><br><br>
-                <label for="workingstatusPartner">Partner working status</label>
-                <select id="workingstatusPartner" class="listbox" name="workingstatus_partner">
-                <option value="yes">yes</option>
-                <option value="no">no</option>
-                </select><br><br>
-                <label for="children">Nr. of children</label>
-                <select id="children" class="listbox" name="numberOfChildren">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                </select>
-                <br><br>
-                <button type="submit" class="btn btn-secondary">Save</button>
-            </div>
-            <div class="col-2" id="childInformation">
-                <label for="child1">First child</label>
-                <input id="child1" type="text" name="child1" placeholder="First Name"><br>
-                <label for="birthyear1">birthyear</label>
-                <input id="birthyear1" type="text" name="birthyear1" placeholder="year"><br><br>
-                <label for="kind2">Second child</label>
-                <input id="kind2" type="text" name="kind2" placeholder="First Name"><br>
-                <label for="birthyear2">birthyear</label>
-                <input id="birthyear2" type="text" name="birthyear2" placeholder="year"><br><br>
-                <label for="child3">Third child</label>
-                <input id="child3" type="text" name="child3" placeholder="First Name"><br>
-                <label for="birthyear3">birthyear</label>
-                <input id="birthyear3" type="text" name="birthyear3" placeholder="year"><br><br>
-                <label for="kind4">Fourth child</label>
-                <input id="kind4" type="text" name="kind4" placeholder="First Name">
-                <label for="birthyear4">birthyear</label>
-                <input id="birthyear4" type="text" name="birthyear4" placeholder="year">
-            </div>
+
+                <div class="col-2" id="familyInformation">
+
+                    <?php $temp_val2 = ($employee['CivilStatus']); ?>
+
+                    <label for="Civilstatus">Civil Status</label>
+                    <select class="listbox" id="Civilstatus" name="CivilStatus" placeholder="Civil status">
+                        <option value="divorsed" <?php if($temp_val2 == 'divorsed') echo('selected')?>>divorsed</option>
+                        <option value="married" <?php if($temp_val2 == 'married') echo('selected')?>>married</option>
+                        <option value="single" <?php if($temp_val2 == 'single') echo('selected')?>>single</option>
+                        <option value="widowed" <?php if($temp_val2 == 'widowed') echo('selected')?>>widowed</option>
+                    </select><br>
+
+                    <?php $temp_val3 = ($employee['PartnerWorkingStatus']); ?>
+
+                    <label for="PartnerWorkingStatus">Is your partner working?</label>
+                    <select id="PartnerWorkingStatus" class="listbox" name="PartnerWorkingStatus" value=<?php echo ($employee['PartnerWorkingStatus']); ?>>
+                        <option value="yes" <?php if($temp_val2 == 'yes') echo('selected')?> >yes</option>
+                        <option value="no" <?php if($temp_val2 == 'no') echo('selected')?> >no</option>
+                    </select><br>
+
+                    <?php $temp_val4 = ($employee['Childes']); ?>
+
+                    <label for="Childes">How many children do you have?</label>
+                    <select id="Childes" class="listbox" name="Childes" value=<?php echo ($employee['Childes']); ?>>
+                        <option value="1" <?php if($temp_val4 == '1') echo('selected')?> >1</option>
+                        <option value="2" <?php if($temp_val4 == '2') echo('selected')?> >2</option>
+                        <option value="3" <?php if($temp_val4 == '3') echo('selected')?> >3</option>
+                        <option value="4" <?php if($temp_val4 == '4') echo('selected')?> >4</option>
+                        <option value="5" <?php if($temp_val4 == '5') echo('selected')?> >5</option>
+                    </select><br>
+                    <label for="Child1">Name</label>
+                    <input id="Child1" type="text" name="Child1" placeholder="First Name" value=<?php echo ($employee['Child1']); ?>><br>
+                    <label for="Child1Year">Birthyear</label>
+                    <input id="Child1Year" type="text" name="Child1Year" placeholder="year" value=<?php echo ($employee['Child1Year']); ?>><br>
+                    <label for="Child2">Name</label>
+                    <input id="Child2" type="text" name="Child2" placeholder="First Name" value=<?php echo ($employee['Child2']); ?>><br>
+                    <label for="Child2Year">Birthyear</label>
+                    <input id="Child2Year" type="text" name="Child2Year" placeholder="year" value=<?php echo ($employee['Child2Year']); ?>><br>
+                    <label for="Child3">Name</label>
+                    <input id="Child3" type="text" name="Child3" placeholder="First Name" value=<?php echo ($employee['Child3']); ?>><br>
+                    <label for="Child3Year">Name</label>
+                    <input id="Child3Year" type="text" name="Child3Year" placeholder="year" value=<?php echo ($employee['Child3Year']); ?>><br>
+                    <label for="Child4">Name</label>
+                    <input id="Child4" type="text" name="Child4" placeholder="First Name" value=<?php echo ($employee['Child4']); ?>>
+                    <label for="Child4Year">Birthyear</label>
+                    <input id="Child4Year" type="text" name="Child4Year" placeholder="year" value=<?php echo ($employee['Child4Year']); ?>>
+                </div>
+            </form>
         </div>
-    </form>
     </div>
 </section>
+
+<!--                 <button type="submit" class="btn btn-secondary">Save</button>
+-->
