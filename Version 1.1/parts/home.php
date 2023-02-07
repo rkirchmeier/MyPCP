@@ -5,7 +5,7 @@
 require("./shared/inc/db.inc.php"); 
 
 //query data from database
-
+if(!isset($_SESSION)) { session_start(); }
 $Employee_ID = $_SESSION['Employee_ID'];
 
 $stmt = $pdo->prepare ("SELECT * FROM employee WHERE Employee_ID = $Employee_ID");

@@ -4,7 +4,8 @@ $navigation = array (
 	"./performance.php" => "My Performance",
 	"./career.php" => "My Career",
 	"./documents.php" => "My Documents",
-	"./admin.php" => "Admin"
+	"./admin.php" => "Admin",
+	"./logout.php" => "logout"
 )
 ?>
 
@@ -15,7 +16,8 @@ $navigation2 = array (
 	"./parts/performance.php" => "My Performance",
 	"./parts/career.php" => "My Career",
 	"./parts/documents.php" => "My Documents",
-	"./parts/admin.php" => "Admin"
+	"./parts/admin.php" => "Admin",
+	"./parts/logout.php" => "logout"
 )
 
 ?>
@@ -27,6 +29,7 @@ $subNavigation = array (
 	"./myMboTargets.php" => "My MbO",
 	"./myPersonalTargets.php" => "Personal Targets",
 	"./clientSatisfaction.php" => "Client Satisfaction"
+	
 )
 ?>
 
@@ -36,7 +39,8 @@ $subNavigation2 = array (
 	"./parts/companyTargets.php" => "Company Targets",
 	"./parts/myMboTargets.php" => "My MbO",
 	"./parts/myPersonalTargets.php" => "Personal Targets",
-	"./parts/clientSatisfaction.php" => "Client Satisfaction"
+	"./parts/clientSatisfaction.php" => "Client Satisfaction",
+	"./parts/logout.php" => "logout"
 )
 
 ?>

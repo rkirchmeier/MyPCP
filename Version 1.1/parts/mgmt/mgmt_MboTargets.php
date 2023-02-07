@@ -1,6 +1,6 @@
 <?php 
-require("../shared/inc/functions.inc.php");
-require("../shared/inc/db.inc.php"); 
+require("../../shared/inc/functions.inc.php");
+require("../../shared/inc/db.inc.php"); 
 ?>
 
 <!DOCTYPE html>
@@ -9,21 +9,19 @@ require("../shared/inc/db.inc.php");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../src/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../src/css/styles.css">
     <title>MyMbO</title>
   </head>
 
   <body>
     <div id="page" class="">
-      <?php
-	  session_start();
-	   require("./navigation.php"); ?>
-      <?php require("./footer.php"); ?>
+      <?php require("../navigation.php"); ?>
+      <?php require("../footer.php"); ?>
 
 
 <!-- My MbO section -->
 
-<?php $Employee_ID = 1; ?>
+
 
 <section id="myMboSection">
 	<div class="container">
@@ -31,18 +29,21 @@ require("../shared/inc/db.inc.php");
 		<div class="row">
 			<div class="col-6">
 				<header>
-					<h1>My MbO</h1>
-					<p>Following you find your targets for this year. Progress will be discussed in your coaching sessions</p>
+					<h1>Employee MbO</h1>
+					<p>Select Name and Year to see your employees MbO</p>
 				</header>
 			</div>
 		</div>
 
 <!-- MbO Targets -->
 
+<?php $Employee_ID = 1; ?>
+<?php $Employee_Name = "Roman Kirchmeier"; ?>
 <?php $Year = 2023 ?>
 
 			<form method="POST">
-				<select id="Year" name="Year" class="listbox">
+				<label for="Year">Year:</label>
+				<select id="Year" name="Year" class="listbox_mgmt">
 					<option selected disabled>-- select --</option>
 					<option value="2023">2023</option>
 					<option value="2024">2024</option>
@@ -52,17 +53,46 @@ require("../shared/inc/db.inc.php");
 					<option value="2028">2028</option>
 					<option value="2029">2029</option>
 					<option value="2030">2030</option>
+				</select><br>
+
+
+		<?php 
+		
+		$stmt = $pdo->prepare ("SELECT Employee_ID, `Name` FROM employee");
+		$stmt -> execute();
+		$employees = $stmt->fetchAll();
+
+		?>
+
+
+				<label for="employee">Employee:</label>
+				<select id="employee" name="employee" class="listbox_mgmt">
+					<?php foreach($employees as $employee): ?>
+					<option value="<?php echo ($employee[1]); ?>"><?php echo ($employee[1]); ?></option>
+					<?php endforeach;?>
+ 
 				</select>
-				<input id="YearButton" type="submit" name="submit" value= "Select year" />
+
+				<input id="YearButton1" type="submit" name="submit" value= "Select" />
+
 			</form>
 
-		<!--get relevant year -->
+		<!--get relevant year and employee -->
 
 		<?php 
 
 			if(isset($_POST['submit'])) {
 			$Year = $_POST['Year'];
+			$Employee_Name = $_POST['employee'];
 			}
+
+			$stmt = $pdo->prepare ("SELECT Employee_ID FROM employee WHERE `Name` = '$Employee_Name'");
+			$stmt -> execute();
+			$employees = $stmt->fetchAll(); 
+
+				foreach($employees as $employee) {
+					$Employee_ID = ($employee[0]);
+				}
 		?>
 
 		<?php

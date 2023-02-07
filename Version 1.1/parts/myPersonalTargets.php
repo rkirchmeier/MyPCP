@@ -15,8 +15,11 @@ require("../shared/inc/db.inc.php");
 
   <body>
     <div id="page" class="">
-      <?php require("./navigation.php"); ?>
-      <?php require("./footer.php"); ?>
+      <?php
+	  session_start();
+	   require("./navigation.php"); 
+       require("./footer.php");
+	   $Employee_ID = $_SESSION['Employee_ID']; ?>
 
 		<!-- Personal Targets -->
 

@@ -3,9 +3,7 @@ require("../shared/inc/functions.inc.php");
 require("../shared/inc/db.inc.php"); 
 ?>
 
-<?php 
-session_start();
-$Employee_ID = $_SESSION['Employee_ID']; ?>
+<?php $Employee_ID = $_GET['Employee_ID']; ?>
 
 <!DOCTYPE html>
 <html lang="de">

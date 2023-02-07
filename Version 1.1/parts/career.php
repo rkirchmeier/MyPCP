@@ -15,7 +15,9 @@ require("../shared/inc/db.inc.php");
 
 	<body>
     <div id="page" class="">
-      <?php require("./navigation.php"); ?>
+      <?php 
+	  session_start();
+	  require("./navigation.php"); ?>
       <?php require("./footer.php"); ?>
 
 <!-- Career Planning-->
